@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @SpringBootApplication
 @RestController
 public class JavaMoviesDemoApplication {
@@ -13,8 +14,5 @@ public class JavaMoviesDemoApplication {
 		SpringApplication.run(JavaMoviesDemoApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String apiRoot(){
-		return "Hello, world";
-	}
+
 }
