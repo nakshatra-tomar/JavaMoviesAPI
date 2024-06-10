@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -15,5 +16,9 @@ public class MovieService {
 
         return movieRepository.findAll();
 
+    }
+
+    public Optional<Movie> singleMovie(Object Id) {
+        return movieRepository.findById(id);
     }
 }
