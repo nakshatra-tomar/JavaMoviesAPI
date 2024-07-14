@@ -3,7 +3,6 @@
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  width: 100%;
 }
 
 .footer .container {
@@ -26,9 +25,4 @@
 
 .footer nav a:hover {
   color: #f0f0f0;
-}
-
-.app {
-  background-color: #222020;
-  color: #fff;
 }
