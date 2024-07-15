@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import api from "../../api/axiosConfig";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import ReviewForm from "../reviewForm/ReviewForm";
+import "./Reviews.css";
 
 import React from "react";
 
@@ -13,7 +14,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
 
   useEffect(() => {
     getMovieData(movieId);
-  }, []);
+  }, [getMovieData, movieId]);
 
   const addReview = async (e) => {
     e.preventDefault();
@@ -37,54 +38,43 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
   };
 
   return (
-    <Container>
+    <Container className="reviews-container">
       <Row>
         <Col>
-          <h3>Reviews</h3>
+          <Button
+            variant="outline-light"
+            className="back-button"
+            onClick={() => window.history.back()}
+          >
+            Back
+          </Button>
         </Col>
       </Row>
-      <Row className="mt-2">
-        <Col>
-          <img src={movie?.poster} alt="" />
+      <Row className="mt-4">
+        <Col md={4}>
+          <Image
+            src={movie?.poster}
+            alt={movie?.title}
+            fluid
+            className="movie-poster"
+          />
         </Col>
-        <Col>
-          {
-            <>
-              <Row>
-                <Col>
-                  <ReviewForm
-                    handleSubmit={addReview}
-                    revText={revText}
-                    labelText="Write a Review?"
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <hr />
-                </Col>
-              </Row>
-            </>
-          }
-          {reviews?.map((r) => {
-            return (
-              <>
-                <Row>
-                  <Col>{r.body}</Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <hr />
-                  </Col>
-                </Row>
-              </>
-            );
-          })}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+        <Col md={8}>
+          <h3 className="reviews-title">Reviews for {movie?.title}</h3>
+          <ReviewForm
+            handleSubmit={addReview}
+            revText={revText}
+            labelText="Write a Review?"
+          />
           <hr />
+          <div className="reviews-list">
+            {reviews?.map((r, index) => (
+              <div key={index} className="review">
+                <p>{r.body}</p>
+                <hr />
+              </div>
+            ))}
+          </div>
         </Col>
       </Row>
     </Container>

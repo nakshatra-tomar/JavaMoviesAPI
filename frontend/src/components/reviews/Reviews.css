@@ -1,0 +1,38 @@
+.reviews-container {
+  padding: 20px;
+  background-color: #120f0f;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  width: 100%;
+}
+
+.back-button {
+  border-radius: 20px;
+  border-color: gold;
+  color: gold;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background-color: gold;
+  color: black;
+}
+
+.movie-poster {
+  border: 1px solid gold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reviews-title {
+  margin-bottom: 20px;
+}
+
+.reviews-list {
+  margin-top: 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+}
