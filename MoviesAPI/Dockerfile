@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY . /app
 
-# Grant execute permission to mvnw
+
 RUN chmod +x mvnw
 
 RUN ./mvnw clean install
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/your-app.jar"]
+CMD ["java", "-jar", "JavaMovieAPI-0.0.1-SNAPSHOT.jar"]
