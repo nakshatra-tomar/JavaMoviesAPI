@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  backend:
+    image: your-backend-docker-image
+    build: ./MoviesAPI
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: your-frontend-docker-image
+    build: ./frontend
+    ports:
+      - "3000:3000"
