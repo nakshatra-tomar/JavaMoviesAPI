@@ -1,14 +1,18 @@
-version: '3'
+version: "3.7"
 
 services:
   backend:
-    image: your-backend-docker-image
-    build: ./MoviesAPI
+    image: backend:latest
+    build:
+      context: ./MoviesAPI
+    env_file:
+      - .env
     ports:
       - "8080:8080"
 
   frontend:
-    image: your-frontend-docker-image
-    build: ./frontend
+    image: frontend:latest
+    build:
+      context: ./frontend
     ports:
       - "3000:3000"
