@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   backend:
-    image: your-dockerhub-username/backend:latest
+    image: nakshatra10/backend:latest
     build:
       context: .
       dockerfile: MoviesAPI/Dockerfile
@@ -12,10 +12,10 @@ services:
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - MONGO_CLUSTER=${MONGO_CLUSTER}
     ports:
-      - "8080:8080"
+      - "8081:8081"
 
   frontend:
-    image: your-dockerhub-username/frontend:latest
+    image: nakshatra10/frontend:latest
     build:
       context: frontend
     ports:

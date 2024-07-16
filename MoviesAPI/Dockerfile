@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY . /app
 
-
 RUN chmod +x mvnw
 
-RUN ./mvnw clean install
+RUN ./mvnw clean package -DskipTests
 
-EXPOSE 8080
+EXPOSE 8081  
 
-CMD ["java", "-jar", "JavaMovieAPI-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/JavaMovieAPI-0.0.1-SNAPSHOT.jar"]
+

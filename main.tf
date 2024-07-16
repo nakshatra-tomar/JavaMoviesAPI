@@ -16,7 +16,7 @@ resource "aws_instance" "web" {
               amazon-linux-extras install docker -y
               service docker start
               usermod -a -G docker ec2-user
-              docker run -d -p 8080:8080 your-backend-docker-image # Backend image
+              docker run -d -p 8081:8081 your-backend-docker-image # Backend image
               docker run -d -p 3000:3000 your-frontend-docker-image # Frontend image
               EOF
 }
@@ -33,8 +33,8 @@ resource "aws_security_group" "allow_ssh_http" {
   }
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 8081
+    to_port     = 8081
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

@@ -23,7 +23,7 @@ public class JavaMoviesDemoApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:3000")
+						.allowedOrigins("http://ec2-54-242-49-73.compute-1.amazonaws.com:3000")
 						.allowedMethods("*")
 						.allowedHeaders("*")
 						.allowCredentials(true).maxAge(3600);
